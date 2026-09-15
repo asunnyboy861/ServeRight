@@ -15,10 +15,10 @@
 
 | Page | URL | Status |
 |------|-----|--------|
-| Landing Page | https://asunnyboy861.github.io/ServeRight/ | ⏳ Pending |
-| Support | https://asunnyboy861.github.io/ServeRight/support.html | ⏳ Pending |
-| Privacy Policy | https://asunnyboy861.github.io/ServeRight/privacy.html | ⏳ Pending |
-| Terms of Use | https://asunnyboy861.github.io/ServeRight/terms.html | ⏳ Pending |
+| Landing Page | https://asunnyboy861.github.io/ServeRight/ | ✅ Active |
+| Support | https://asunnyboy861.github.io/ServeRight/support.html | ✅ Active |
+| Privacy Policy | https://asunnyboy861.github.io/ServeRight/privacy.html | ✅ Active |
+| Terms of Use | https://asunnyboy861.github.io/ServeRight/terms.html | ✅ Active |
 
 ## Repository Structure
 
