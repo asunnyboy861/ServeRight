@@ -69,7 +69,7 @@ struct PaywallView: View {
                             ProgressView().tint(.white)
                                 .frame(maxWidth: .infinity)
                         } else {
-                            Text("Start Free Trial / Subscribe")
+                            Text(ctaText)
                                 .frame(maxWidth: .infinity)
                         }
                     }
@@ -108,6 +108,19 @@ struct PaywallView: View {
                 }
             }
         }
+    }
+
+    private var ctaText: String {
+        guard let product = purchaseManager.products.first(where: { $0.id == selectedID }) else {
+            return "Continue"
+        }
+        if product.id == PurchaseManager.lifetimeID {
+            return "Buy Lifetime — \(product.displayPrice)"
+        }
+        if product.id == PurchaseManager.annualID {
+            return "Start 7-Day Free Trial"
+        }
+        return "Subscribe — \(product.displayPrice)"
     }
 
     private func featureRow(_ icon: String, _ text: String) -> some View {

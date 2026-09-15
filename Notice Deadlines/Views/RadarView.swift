@@ -6,13 +6,29 @@ struct RadarView: View {
     @Query private var deadlines: [DeadlineInstance]
     @StateObject private var purchaseManager = PurchaseManager.shared
     @State private var askedPermission = false
+    var onAddPropertyTapped: (() -> Void)?
+    @AppStorage("onboarding_concern") private var concern = ""
 
     private var sorted: [DeadlineInstance] {
         deadlines.sorted { $0.bestSendBy < $1.bestSendBy }
     }
 
+    private var concernCategory: RuleCategory? {
+        switch concern {
+        case "Rent increase": return .rentIncrease
+        case "Deposit": return .depositReturn
+        case "Non-renewal": return .termination
+        default: return nil
+        }
+    }
+
     private var primary: DeadlineInstance? {
-        sorted.first { $0.status == .actionNeeded } ?? sorted.first { $0.status == .upcoming } ?? sorted.first
+        if let first = sorted.first(where: { $0.status == .actionNeeded }) { return first }
+        if let category = concernCategory,
+           let match = sorted.first(where: { $0.category == category && $0.status == .upcoming }) {
+            return match
+        }
+        return sorted.first(where: { $0.status == .upcoming }) ?? sorted.first
     }
 
     var body: some View {
@@ -25,7 +41,7 @@ struct RadarView: View {
                             GenerateNoticeButton(deadline: next)
                         }
                     } else {
-                        EmptyRadarCard()
+                        EmptyRadarCard(onAddPropertyTapped: onAddPropertyTapped)
                     }
 
                     if sorted.count > 1 {
@@ -164,10 +180,16 @@ struct StatusPill: View {
 struct GenerateNoticeButton: View {
     let deadline: DeadlineInstance
     @State private var showWizard = false
+    @State private var showPaywall = false
+    @StateObject private var purchaseManager = PurchaseManager.shared
 
     var body: some View {
         Button {
-            showWizard = true
+            if FreeLimits.canWriteLetter(isPro: purchaseManager.isPro) {
+                showWizard = true
+            } else {
+                showPaywall = true
+            }
         } label: {
             Label("Generate Notice", systemImage: "doc.badge.plus")
                 .frame(maxWidth: .infinity)
@@ -178,10 +200,15 @@ struct GenerateNoticeButton: View {
         .sheet(isPresented: $showWizard) {
             NoticeWizardView(deadline: deadline)
         }
+        .sheet(isPresented: $showPaywall) {
+            PaywallView()
+        }
     }
 }
 
 struct EmptyRadarCard: View {
+    var onAddPropertyTapped: (() -> Void)?
+
     var body: some View {
         VStack(spacing: 12) {
             Image(systemName: "checkmark.seal.fill")
@@ -193,6 +220,15 @@ struct EmptyRadarCard: View {
                 .font(.body)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
+            if let onAddPropertyTapped {
+                Button(action: onAddPropertyTapped) {
+                    Label("Add Your First Property", systemImage: "plus.circle.fill")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
+                .padding(.top, 6)
+            }
         }
         .padding(32)
         .frame(maxWidth: 720)
@@ -248,6 +284,7 @@ struct DeadlineDetailView: View {
     let deadlineID: PersistentIdentifier
     @Environment(\.modelContext) private var modelContext
     @Query private var deadlines: [DeadlineInstance]
+    @State private var servedConfirmation = false
 
     private var deadline: DeadlineInstance? {
         deadlines.first { $0.persistentModelID == deadlineID }
@@ -258,6 +295,18 @@ struct DeadlineDetailView: View {
             if let deadline {
                 VStack(alignment: .leading, spacing: 16) {
                     PrimaryCountdownCard(deadline: deadline)
+                    if deadline.status == .upcoming || deadline.status == .actionNeeded {
+                        GenerateNoticeButton(deadline: deadline)
+                        Button {
+                            markServed(deadline)
+                        } label: {
+                            Label("Mark as Served", systemImage: "checkmark.circle.fill")
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.bordered)
+                        .controlSize(.large)
+                        .frame(maxWidth: 720)
+                    }
                     infoSection(deadline)
                 }
                 .padding(.horizontal)
@@ -266,6 +315,29 @@ struct DeadlineDetailView: View {
         .background(Color(.systemGroupedBackground))
         .navigationTitle("Deadline")
         .navigationBarTitleDisplayMode(.inline)
+        .overlay {
+            if servedConfirmation {
+                Label("Marked as served", systemImage: "checkmark.seal.fill")
+                    .padding()
+                    .background(.green.opacity(0.9), in: Capsule())
+                    .foregroundStyle(.white)
+                    .transition(.opacity)
+            }
+        }
+    }
+
+    private func markServed(_ deadline: DeadlineInstance) {
+        deadline.servedOn = .now
+        deadline.status = .served
+        RuleEngine.recomputeStatuses(modelContext: modelContext)
+        let all = (try? modelContext.fetch(FetchDescriptor<DeadlineInstance>())) ?? []
+        NotificationScheduler.rescheduleAll(deadlines: all)
+        WidgetBridge.publishSnapshot(deadlines: all, isPro: PurchaseManager.shared.isPro)
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
+        withAnimation { servedConfirmation = true }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            withAnimation { servedConfirmation = false }
+        }
     }
 
     private func infoSection(_ deadline: DeadlineInstance) -> some View {

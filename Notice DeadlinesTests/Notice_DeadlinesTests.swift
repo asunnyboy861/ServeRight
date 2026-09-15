@@ -1,4 +1,5 @@
 import XCTest
+import SwiftData
 @testable import Notice_Deadlines
 
 final class RulesGoldenTests: XCTestCase {
@@ -32,6 +33,27 @@ final class RulesGoldenTests: XCTestCase {
         let r = try resolve("TX", .depositReturn, context: LeaseContext(keysReturnedDate: date(2026, 3, 1)))
         XCTAssertEqual(r.days, 45, "override must replace state default")
         assertDate(r.deadline, 2026, 4, 15, "override deadline")
+    }
+
+    func testRebuildPreservesServedStatus() throws {
+        let schema = Schema([Property.self, Lease.self, DeadlineInstance.self, LetterArchive.self])
+        let container = try ModelContainer(for: schema, configurations: [ModelConfiguration(isStoredInMemoryOnly: true)])
+        let context = ModelContext(container)
+        let property = Property(nickname: "Oak", street: "1 Main St", stateCode: "TX")
+        context.insert(property)
+        let lease = Lease(tenantName: "Bob", monthlyRent: 1500, depositAmount: 1500, startDate: date(2026, 1, 1), endDate: date(2026, 12, 31))
+        lease.property = property
+        context.insert(lease)
+
+        RuleEngine.rebuildDeadlines(for: lease, property: property, context: context)
+        let before = try XCTUnwrap(lease.deadlineList.first { $0.category == .termination })
+        before.status = .served
+        before.servedOn = date(2026, 6, 1)
+
+        RuleEngine.rebuildDeadlines(for: lease, property: property, context: context)
+        let after = try XCTUnwrap(lease.deadlineList.first { $0.category == .termination })
+        XCTAssertEqual(after.status, .served, "served status must survive a rebuild")
+        XCTAssertEqual(after.servedOn, date(2026, 6, 1))
     }
 
     func testRulesVersion() {

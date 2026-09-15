@@ -3,6 +3,7 @@ import SwiftData
 
 enum RuleEngine {
     static func rebuildDeadlines(for lease: Lease, property: Property?, context: ModelContext) {
+        let priorState = Dictionary(uniqueKeysWithValues: lease.deadlineList.map { ($0.ruleID, ($0.statusRaw, $0.servedOn)) })
         lease.deadlineList.forEach { context.delete($0) }
         lease.deadlines = []
 
@@ -13,18 +14,18 @@ enum RuleEngine {
         if let entry = jurisdiction.primaryRule(for: .rentIncrease),
            let percent = lease.increasePercent, percent > 0,
            let event = leaseContext.event(for: entry.baseEvent) {
-            appendInstance(for: entry, context: leaseContext, event: event, category: .rentIncrease, lease: lease, label: label, modelContext: context)
+            appendInstance(for: entry, context: leaseContext, event: event, category: .rentIncrease, lease: lease, label: label, modelContext: context, priorState: priorState)
         }
 
         if let entry = jurisdiction.primaryRule(for: .depositReturn),
            lease.keysReturnedOn != nil,
            let event = leaseContext.event(for: entry.baseEvent) {
-            appendInstance(for: entry, context: leaseContext, event: event, category: .depositReturn, lease: lease, label: label, modelContext: context)
+            appendInstance(for: entry, context: leaseContext, event: event, category: .depositReturn, lease: lease, label: label, modelContext: context, priorState: priorState)
         }
 
         if let entry = jurisdiction.primaryRule(for: .termination),
            let event = leaseContext.event(for: entry.baseEvent) {
-            appendInstance(for: entry, context: leaseContext, event: event, category: .termination, lease: lease, label: label, modelContext: context)
+            appendInstance(for: entry, context: leaseContext, event: event, category: .termination, lease: lease, label: label, modelContext: context, priorState: priorState)
         }
     }
 
@@ -48,7 +49,7 @@ enum RuleEngine {
         }
     }
 
-    private static func appendInstance(for entry: RuleEntry, context leaseContext: LeaseContext, event: Date, category: RuleCategory, lease: Lease, label: String, modelContext: ModelContext) {
+    private static func appendInstance(for entry: RuleEntry, context leaseContext: LeaseContext, event: Date, category: RuleCategory, lease: Lease, label: String, modelContext: ModelContext, priorState: [String: (String, Date?)] = [:]) {
         guard let resolved = DeadlineCalculator.resolve(entry: entry, context: leaseContext) else { return }
         let note = RuleStore.resolvedConditionNote(for: entry, context: leaseContext)
         let instance = DeadlineInstance(
@@ -64,6 +65,10 @@ enum RuleEngine {
             resolvedNote: note,
             leaseLabel: label
         )
+        if let (statusRaw, servedOn) = priorState[entry.id] {
+            instance.statusRaw = statusRaw
+            instance.servedOn = servedOn
+        }
         instance.lease = lease
         modelContext.insert(instance)
     }

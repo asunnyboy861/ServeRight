@@ -3,19 +3,25 @@ import SwiftData
 
 struct ContentView: View {
     @StateObject private var purchaseManager = PurchaseManager.shared
+    @State private var selectedTab = 0
 
     var body: some View {
-        TabView {
-            RadarView()
+        TabView(selection: $selectedTab) {
+            RadarView(onAddPropertyTapped: { selectedTab = 1 })
                 .tabItem { Label("Radar", systemImage: "antenna.radiowaves.left.and.right") }
+                .tag(0)
             PropertiesView()
                 .tabItem { Label("Properties", systemImage: "house.fill") }
+                .tag(1)
             RulesView()
                 .tabItem { Label("Rules", systemImage: "book.fill") }
+                .tag(2)
             CalendarGateView()
                 .tabItem { Label("Calendar", systemImage: "calendar") }
+                .tag(3)
             SettingsView()
                 .tabItem { Label("Settings", systemImage: "gearshape.fill") }
+                .tag(4)
         }
         .tint(Color.accentColor)
     }

@@ -112,7 +112,17 @@ struct NoticeWizardView: View {
                 } label: {
                     Text("Continue").frame(maxWidth: .infinity)
                 }
+                .disabled(!letterDetailsValid)
             }
+        }
+    }
+
+    private var letterDetailsValid: Bool {
+        switch letterType {
+        case .rentIncrease:
+            return Double(currentRent) != nil && (Double(newRent) ?? 0) > 0
+        case .depositItemizedReturn, .nonRenewal:
+            return true
         }
     }
 

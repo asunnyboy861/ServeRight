@@ -35,7 +35,7 @@ enum NotificationScheduler {
             var components = Calendar.current.dateComponents([.year, .month, .day], from: fireDate)
             components.hour = 9
             let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
-            let request = UNNotificationRequest(identifier: "\(deadline.ruleID)-\(deadline.leaseLabel.hashValue)-\(offset)", content: content, trigger: trigger)
+            let request = UNNotificationRequest(identifier: "\(deadline.ruleID)-\(Int(deadline.statutoryDeadline.timeIntervalSince1970))-\(offset)", content: content, trigger: trigger)
             center.add(request)
         }
     }

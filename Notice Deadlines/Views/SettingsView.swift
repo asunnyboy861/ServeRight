@@ -46,6 +46,11 @@ struct SettingsView: View {
                 }
 
                 Section("Data") {
+                    NavigationLink {
+                        LetterArchiveView()
+                    } label: {
+                        Label("Letter Archive", systemImage: "doc.text.fill")
+                    }
                     LabeledRow(label: "Storage", value: "On this device only")
                     LabeledRow(label: "Accounts", value: "None required")
                     LabeledRow(label: "Rules version", value: RuleStore.shared.version)

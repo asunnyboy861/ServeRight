@@ -18,7 +18,7 @@ struct OnboardingView: View {
                 HStack(spacing: 8) {
                     ForEach(0..<3, id: \.self) { index in
                         Capsule()
-                            .fill(index <= step ? Color.accentColor : Color(.systemGray4))
+                            .fill(index <= min(step, 2) ? Color.accentColor : Color(.systemGray4))
                             .frame(height: 4)
                     }
                 }
@@ -28,7 +28,8 @@ struct OnboardingView: View {
                 TabView(selection: $step) {
                     step1.tag(0)
                     step2.tag(1)
-                    magicMoment.tag(2)
+                    step3.tag(2)
+                    magicMoment.tag(3)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
             }
@@ -95,15 +96,71 @@ struct OnboardingView: View {
             Button {
                 withAnimation { step = 2 }
             } label: {
-                Text("Show My Rules")
+                Text("Next")
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
             .disabled(propertyCount.isEmpty)
+            .accessibilityLabel("Next question")
+        }
+        .padding(24)
+    }
+
+    private var step3: some View {
+        VStack(alignment: .leading, spacing: 24) {
+            Text("What worries you most?")
+                .font(.largeTitle.bold())
+            Text("We'll put that deadline front and center on your Radar.")
+                .font(.body)
+                .foregroundStyle(.secondary)
+            VStack(spacing: 12) {
+                concernOption("Rent increase", icon: "chart.line.uptrend.xyaxis", detail: "Getting the notice period right")
+                concernOption("Deposit", icon: "dollarsign.arrow.circlepath", detail: "Returning it on time, itemized")
+                concernOption("Non-renewal", icon: "envelope.badge", detail: "Terminating a month-to-month lease")
+            }
+            Spacer()
+            Button {
+                withAnimation { step = 3 }
+            } label: {
+                Text("Show My Rules")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .disabled(concern.isEmpty)
             .accessibilityLabel("Show my rules")
         }
         .padding(24)
+    }
+
+    private func concernOption(_ label: String, icon: String, detail: String) -> some View {
+        Button {
+            concern = label
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: icon)
+                    .foregroundStyle(Color.accentColor)
+                    .frame(width: 28)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(label)
+                        .foregroundStyle(.primary)
+                        .font(.headline)
+                    Text(detail)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+                if concern == label {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundStyle(Color.accentColor)
+                }
+            }
+            .padding()
+            .background(concern == label ? Color.accentColor.opacity(0.12) : Color(.secondarySystemBackground))
+            .cornerRadius(12)
+        }
+        .accessibilityLabel(label)
     }
 
     private var magicMoment: some View {
