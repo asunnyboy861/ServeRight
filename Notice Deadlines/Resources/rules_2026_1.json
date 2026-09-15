@@ -1,0 +1,4194 @@
+{
+ "schema_version": "2026.1",
+ "jurisdictions": [
+  {
+   "code": "AK",
+   "name": "Alaska",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "AK-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.akleg.gov/basis/statutes.asp",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "AK-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "forwarding_address_received",
+        "op": "eq",
+        "value": true,
+        "days": 14
+       }
+      ],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "Alaska Stat. \u00a734.03.290"
+      },
+      "source_url": "https://www.akleg.gov/basis/statutes.asp",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "AK-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Alaska Stat. \u00a734.03.270"
+      },
+      "source_url": "https://www.akleg.gov/basis/statutes.asp",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "AK-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.akleg.gov/basis/statutes.asp",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "AL",
+   "name": "Alabama",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "AL-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://alisondb.legislature.state.al.us/alison/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "AL-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 21,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "deductions_claimed",
+        "op": "eq",
+        "value": true,
+        "days": 35
+       }
+      ],
+      "penalty": {
+       "type": "treble_if_bad_faith",
+       "multiplier": 3,
+       "plus_attorney_fees": true,
+       "citation": "Ala. Code \u00a735-9A-301(g)"
+      },
+      "source_url": "https://alisondb.legislature.state.al.us/alison/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "AL-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Ala. Code \u00a735-9A-301"
+      },
+      "source_url": "https://alisondb.legislature.state.al.us/alison/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "AL-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://alisondb.legislature.state.al.us/alison/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "AR",
+   "name": "Arkansas",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "AR-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.arkleg.state.ar.us/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "AR-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "citation": "Ark. Code \u00a718-17-603"
+      },
+      "source_url": "https://www.arkleg.state.ar.us/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "AR-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 2.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Ark. Code \u00a718-17-602(b)"
+      },
+      "source_url": "https://www.arkleg.state.ar.us/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "AR-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.arkleg.state.ar.us/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "AZ",
+   "name": "Arizona",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "AZ-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.azleg.gov/arsDetail/?arsTitle=33-1321",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "AZ-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 14,
+      "calendar": "business_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "A.R.S. \u00a733-1321(D)"
+      },
+      "source_url": "https://www.azleg.gov/arsDetail/?arsTitle=33-1321",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "AZ-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.5,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "A.R.S. \u00a733-1321(A)"
+      },
+      "source_url": "https://www.azleg.gov/arsDetail/?arsTitle=33-1321",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "AZ-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.azleg.gov/arsDetail/?arsTitle=33-1321",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "CA",
+   "name": "California",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "CA-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [
+       {
+        "field": "increase_percent",
+        "op": "gt",
+        "value": 10,
+        "days": 90,
+        "note": "AB 1482 tier"
+       }
+      ],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=5.&part=4.&chapter=2.&article=1.5",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "CA-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 21,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "Cal. Civ. Code \u00a71950.5(l)"
+      },
+      "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=5.&part=4.&chapter=2.&article=1.5",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "CA-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Cal. Civ. Code \u00a71950.5(c) (AB 12)"
+      },
+      "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=5.&part=4.&chapter=2.&article=1.5",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "CA-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 1,
+        "days": 60,
+        "note": "Civ. Code \u00a71946.1"
+       }
+      ],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=5.&part=4.&chapter=2.&article=1.5",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "CO",
+   "name": "Colorado",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "CO-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://leg.colorado.gov/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "CO-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "treble_if_bad_faith",
+       "multiplier": 3,
+       "plus_attorney_fees": true,
+       "citation": "C.R.S. \u00a738-12-103"
+      },
+      "source_url": "https://leg.colorado.gov/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "CO-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "C.R.S. \u00a738-12-102"
+      },
+      "source_url": "https://leg.colorado.gov/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "CO-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 21,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://leg.colorado.gov/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "CT",
+   "name": "Connecticut",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "CT-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 45,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.cga.ct.gov/current/pub/chap_830.htm",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "CT-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "Conn. Gen. Stat. \u00a747a-21(i)"
+      },
+      "source_url": "https://www.cga.ct.gov/current/pub/chap_830.htm",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "CT-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 2.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Conn. Gen. Stat. \u00a747a-21(b)"
+      },
+      "source_url": "https://www.cga.ct.gov/current/pub/chap_830.htm",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "CT-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.cga.ct.gov/current/pub/chap_830.htm",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "DC",
+   "name": "District of Columbia",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "DC-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 3,
+        "days": 120
+       },
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 2,
+        "days": 90
+       },
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 1,
+        "days": 60
+       }
+      ],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://code.dccouncil.us/dc/council/code/titles/42/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "DC-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 3,
+       "plus_attorney_fees": true,
+       "citation": "D.C. Mun. Regs. tit.14 \u00a7308"
+      },
+      "source_url": "https://code.dccouncil.us/dc/council/code/titles/42/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "DC-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "D.C. Code \u00a742-3502.31"
+      },
+      "source_url": "https://code.dccouncil.us/dc/council/code/titles/42/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "DC-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 3,
+        "days": 120
+       },
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 2,
+        "days": 90
+       },
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 1,
+        "days": 60
+       }
+      ],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://code.dccouncil.us/dc/council/code/titles/42/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "DE",
+   "name": "Delaware",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "DE-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://delcode.delaware.gov/title25/c055/index.html",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "DE-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 20,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "citation": "25 Del. C. \u00a75514"
+      },
+      "source_url": "https://delcode.delaware.gov/title25/c055/index.html",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "DE-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "25 Del. C. \u00a75513"
+      },
+      "source_url": "https://delcode.delaware.gov/title25/c055/index.html",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "DE-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://delcode.delaware.gov/title25/c055/index.html",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "FL",
+   "name": "Florida",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "FL-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 1,
+        "days": 60,
+        "note": "Fla. Stat. \u00a783.57"
+       }
+      ],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "http://www.leg.state.fl.us/statutes/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "FL-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 15,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "deductions_claimed",
+        "op": "eq",
+        "value": true,
+        "days": 30,
+        "note": "deductions require certified mail"
+       }
+      ],
+      "penalty": {
+       "type": "forfeit_deductions_plus_treble_if_willful",
+       "citation": "Fla. Stat. \u00a783.49"
+      },
+      "source_url": "http://www.leg.state.fl.us/statutes/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "FL-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Fla. Stat. \u00a783.49 (no statutory cap)"
+      },
+      "source_url": "http://www.leg.state.fl.us/statutes/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "FL-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 1,
+        "days": 60,
+        "note": "Fla. Stat. \u00a783.57"
+       }
+      ],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "http://www.leg.state.fl.us/statutes/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "GA",
+   "name": "Georgia",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "GA-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legis.ga.gov/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "GA-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "citation": "O.C.G.A. \u00a744-7-56"
+      },
+      "source_url": "https://www.legis.ga.gov/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "GA-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "O.C.G.A. \u00a744-7-50 (no statutory cap)"
+      },
+      "source_url": "https://www.legis.ga.gov/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "GA-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legis.ga.gov/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "HI",
+   "name": "Hawaii",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "HI-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 45,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.capitol.hawaii.gov/hrscurrent/Vol12_Ch0501-0576/HRS0521/HRS_0521-0044.htm",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "HI-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 14,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "treble_if_bad_faith",
+       "multiplier": 3,
+       "plus_attorney_fees": true,
+       "citation": "Haw. Rev. Stat. \u00a7521-44(d)"
+      },
+      "source_url": "https://www.capitol.hawaii.gov/hrscurrent/Vol12_Ch0501-0576/HRS0521/HRS_0521-0044.htm",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "HI-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Haw. Rev. Stat. \u00a7521-44(a)"
+      },
+      "source_url": "https://www.capitol.hawaii.gov/hrscurrent/Vol12_Ch0501-0576/HRS0521/HRS_0521-0044.htm",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "HI-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 45,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.capitol.hawaii.gov/hrscurrent/Vol12_Ch0501-0576/HRS0521/HRS_0521-0044.htm",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "IA",
+   "name": "Iowa",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "IA-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legis.iowa.gov/law/statutes",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "IA-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "deductions_claimed",
+        "op": "eq",
+        "value": true,
+        "days": 31,
+        "note": "written itemization"
+       }
+      ],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "citation": "Iowa Code \u00a7562A.22"
+      },
+      "source_url": "https://www.legis.iowa.gov/law/statutes",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "IA-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 2.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Iowa Code \u00a7562A.12"
+      },
+      "source_url": "https://www.legis.iowa.gov/law/statutes",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "IA-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legis.iowa.gov/law/statutes",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "ID",
+   "name": "Idaho",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "ID-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://legislature.idaho.gov/statutesrules/idstat/Title6/T6CH3/SECT6-321/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "ID-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 21,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "deductions_claimed",
+        "op": "eq",
+        "value": true,
+        "days": 30
+       }
+      ],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "citation": "Idaho Code \u00a76-321"
+      },
+      "source_url": "https://legislature.idaho.gov/statutesrules/idstat/Title6/T6CH3/SECT6-321/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "ID-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Idaho Code \u00a76-321 (no statutory cap)"
+      },
+      "source_url": "https://legislature.idaho.gov/statutesrules/idstat/Title6/T6CH3/SECT6-321/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "ID-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://legislature.idaho.gov/statutesrules/idstat/Title6/T6CH3/SECT6-321/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "IL",
+   "name": "Illinois",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "IL-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.ilga.gov/legislation/ilcs/ilcs5.asp?ActID=2214",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "IL-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 14,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "deductions_claimed",
+        "op": "eq",
+        "value": true,
+        "days": 30,
+        "note": "5 or fewer units; verify local ordinance"
+       }
+      ],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "765 ILCS 710/1"
+      },
+      "source_url": "https://www.ilga.gov/legislation/ilcs/ilcs5.asp?ActID=2214",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "IL-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "765 ILCS 710 (no state cap; local ordinances apply)"
+      },
+      "source_url": "https://www.ilga.gov/legislation/ilcs/ilcs5.asp?ActID=2214",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "IL-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.ilga.gov/legislation/ilcs/ilcs5.asp?ActID=2214",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "IN",
+   "name": "Indiana",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "IN-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://iga.in.gov/legislative/laws/2024/ic/titles/32/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "IN-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 45,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "citation": "Ind. Code \u00a732-31-3-9"
+      },
+      "source_url": "https://iga.in.gov/legislative/laws/2024/ic/titles/32/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "IN-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Ind. Code \u00a732-31-3-8 (no statutory cap)"
+      },
+      "source_url": "https://iga.in.gov/legislative/laws/2024/ic/titles/32/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "IN-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://iga.in.gov/legislative/laws/2024/ic/titles/32/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "KS",
+   "name": "Kansas",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "KS-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.kslegislature.org/li/b2025_26/statute/058_0000_chapter/058_0025_article/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "KS-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 14,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "deductions_claimed",
+        "op": "eq",
+        "value": true,
+        "days": 30
+       }
+      ],
+      "penalty": {
+       "type": "multiplier_fixed",
+       "multiplier": 1.5,
+       "plus_attorney_fees": true,
+       "citation": "Kan. Stat. \u00a758-2550(b)"
+      },
+      "source_url": "https://www.kslegislature.org/li/b2025_26/statute/058_0000_chapter/058_0025_article/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "KS-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Kan. Stat. \u00a758-2550(a)"
+      },
+      "source_url": "https://www.kslegislature.org/li/b2025_26/statute/058_0000_chapter/058_0025_article/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "KS-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.kslegislature.org/li/b2025_26/statute/058_0000_chapter/058_0025_article/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "KY",
+   "name": "Kentucky",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "KY-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://apps.legislature.ky.gov/law/kar/titles/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "KY-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "deductions_claimed",
+        "op": "eq",
+        "value": true,
+        "days": 60
+       }
+      ],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "plus_attorney_fees": true,
+       "citation": "KRS \u00a7383.580"
+      },
+      "source_url": "https://apps.legislature.ky.gov/law/kar/titles/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "KY-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "KRS \u00a7383.515 (no statutory cap)"
+      },
+      "source_url": "https://apps.legislature.ky.gov/law/kar/titles/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "KY-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://apps.legislature.ky.gov/law/kar/titles/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "LA",
+   "name": "Louisiana",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "LA-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 10,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legis.la.gov/legis/Laws_Toc.aspx",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "LA-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 15,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "forwarding_address_received",
+        "op": "eq",
+        "value": true,
+        "days": 30,
+        "note": "\u00a79:3251(B)"
+       }
+      ],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "plus_attorney_fees": true,
+       "citation": "La. R.S. \u00a79:3251"
+      },
+      "source_url": "https://www.legis.la.gov/legis/Laws_Toc.aspx",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "LA-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "La. R.S. \u00a79:3251 (no statutory cap)"
+      },
+      "source_url": "https://www.legis.la.gov/legis/Laws_Toc.aspx",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "LA-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 10,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legis.la.gov/legis/Laws_Toc.aspx",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "MA",
+   "name": "Massachusetts",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "MA-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "MA-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "treble_if_bad_faith",
+       "multiplier": 3,
+       "plus_attorney_fees": true,
+       "citation": "Mass. Gen. Laws ch. 186 \u00a715B(7)"
+      },
+      "source_url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "MA-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Mass. Gen. Laws ch. 186 \u00a715B(1)(b)"
+      },
+      "source_url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "MA-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "MD",
+   "name": "Maryland",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "MD-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 2,
+        "days": 90,
+        "note": "Md. Code, Real Prop. \u00a78-207"
+       }
+      ],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=RP",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "MD-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 45,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "tenancy_years",
+        "op": "gt",
+        "value": 1,
+        "days": 30
+       }
+      ],
+      "penalty": {
+       "type": "treble_if_bad_faith",
+       "multiplier": 3,
+       "plus_attorney_fees": true,
+       "citation": "Md. Code, Real Prop. \u00a78-203(e)"
+      },
+      "source_url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=RP",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "MD-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 2.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Md. Code, Real Prop. \u00a78-203(b)"
+      },
+      "source_url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=RP",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "MD-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 2,
+        "days": 90
+       }
+      ],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=RP",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "ME",
+   "name": "Maine",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "ME-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 45,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://legislature.maine.gov/statutes/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "ME-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "forwarding_address_received",
+        "op": "eq",
+        "value": true,
+        "days": 21
+       }
+      ],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "14 M.R.S. \u00a76024"
+      },
+      "source_url": "https://legislature.maine.gov/statutes/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "ME-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 2.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "14 M.R.S. \u00a76031"
+      },
+      "source_url": "https://legislature.maine.gov/statutes/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "ME-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://legislature.maine.gov/statutes/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "MI",
+   "name": "Michigan",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "MI-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legislature.mi.gov/(S(5nvzv23g5v4mewvgsknd3oys))/mileg.aspx?page=GetObject&objectname=mcl-554-601",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "MI-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "MCL \u00a7554.606(3)"
+      },
+      "source_url": "https://www.legislature.mi.gov/(S(5nvzv23g5v4mewvgsknd3oys))/mileg.aspx?page=GetObject&objectname=mcl-554-601",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "MI-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.5,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "MCL \u00a7554.601a"
+      },
+      "source_url": "https://www.legislature.mi.gov/(S(5nvzv23g5v4mewvgsknd3oys))/mileg.aspx?page=GetObject&objectname=mcl-554-601",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "MI-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legislature.mi.gov/(S(5nvzv23g5v4mewvgsknd3oys))/mileg.aspx?page=GetObject&objectname=mcl-554-601",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "MN",
+   "name": "Minnesota",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "MN-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.revisor.mn.gov/statutes/cite/504B.178",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "MN-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "forwarding_address_received",
+        "op": "eq",
+        "value": true,
+        "days": 5,
+        "note": "\u00a7504B.178(a) written request"
+       }
+      ],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "citation": "Minn. Stat. \u00a7504B.178"
+      },
+      "source_url": "https://www.revisor.mn.gov/statutes/cite/504B.178",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "MN-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Minn. Stat. \u00a7504B.175 (no statutory cap)"
+      },
+      "source_url": "https://www.revisor.mn.gov/statutes/cite/504B.178",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "MN-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.revisor.mn.gov/statutes/cite/504B.178",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "MO",
+   "name": "Missouri",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "MO-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://revisor.mo.gov/main/OneSection.aspx?section=535.300",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "MO-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "Mo. Rev. Stat. \u00a7535.300"
+      },
+      "source_url": "https://revisor.mo.gov/main/OneSection.aspx?section=535.300",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "MO-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 2.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Mo. Rev. Stat. \u00a7535.010"
+      },
+      "source_url": "https://revisor.mo.gov/main/OneSection.aspx?section=535.300",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "MO-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://revisor.mo.gov/main/OneSection.aspx?section=535.300",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "MS",
+   "name": "Mississippi",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "MS-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legislature.ms.gov/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "MS-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 45,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "citation": "Miss. Code \u00a789-8-21"
+      },
+      "source_url": "https://www.legislature.ms.gov/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "MS-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Miss. Code \u00a789-8-21 (no statutory cap)"
+      },
+      "source_url": "https://www.legislature.ms.gov/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "MS-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legislature.ms.gov/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "MT",
+   "name": "Montana",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "MT-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://leg.mt.gov/bills/mca/title_0700/chapter_0250/parts_index.html",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "MT-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "forwarding_address_received",
+        "op": "eq",
+        "value": true,
+        "days": 10,
+        "note": "\u00a770-25-201(1)"
+       }
+      ],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "Mont. Code \u00a770-25-202"
+      },
+      "source_url": "https://leg.mt.gov/bills/mca/title_0700/chapter_0250/parts_index.html",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "MT-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Mont. Code \u00a770-25-202 (no statutory cap)"
+      },
+      "source_url": "https://leg.mt.gov/bills/mca/title_0700/chapter_0250/parts_index.html",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "MT-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://leg.mt.gov/bills/mca/title_0700/chapter_0250/parts_index.html",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "NC",
+   "name": "North Carolina",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "NC-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_42.html",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "NC-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "citation": "N.C. Gen. Stat. \u00a742-52"
+      },
+      "source_url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_42.html",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "NC-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.5,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "N.C. Gen. Stat. \u00a742-51 (2 months with pets)"
+      },
+      "source_url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_42.html",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "NC-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 7,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_42.html",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "ND",
+   "name": "North Dakota",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "ND-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legis.nd.gov/cencode/t47c16.pdf",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "ND-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "plus_attorney_fees": true,
+       "citation": "N.D. Cent. Code \u00a747-16-07.2"
+      },
+      "source_url": "https://www.legis.nd.gov/cencode/t47c16.pdf",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "ND-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "N.D. Cent. Code \u00a747-16-07.1"
+      },
+      "source_url": "https://www.legis.nd.gov/cencode/t47c16.pdf",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "ND-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legis.nd.gov/cencode/t47c16.pdf",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "NE",
+   "name": "Nebraska",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "NE-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://nebraskalegislature.gov/laws/browse-chapters.php?chapter=76",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "NE-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 14,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_fixed",
+       "multiplier": 1.5,
+       "plus_attorney_fees": true,
+       "citation": "Neb. Rev. Stat. \u00a776-1423"
+      },
+      "source_url": "https://nebraskalegislature.gov/laws/browse-chapters.php?chapter=76",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "NE-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.25,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Neb. Rev. Stat. \u00a776-1419"
+      },
+      "source_url": "https://nebraskalegislature.gov/laws/browse-chapters.php?chapter=76",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "NE-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://nebraskalegislature.gov/laws/browse-chapters.php?chapter=76",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "NH",
+   "name": "New Hampshire",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "NH-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.gencourt.state.nh.us/rsa/html/xl/540-a/540-a-mrg.htm",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "NH-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "N.H. Rev. Stat. \u00a7540-A:3(I-b)"
+      },
+      "source_url": "https://www.gencourt.state.nh.us/rsa/html/xl/540-a/540-a-mrg.htm",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "NH-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.5,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "N.H. Rev. Stat. \u00a7540-A:2, I-b"
+      },
+      "source_url": "https://www.gencourt.state.nh.us/rsa/html/xl/540-a/540-a-mrg.htm",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "NH-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.gencourt.state.nh.us/rsa/html/xl/540-a/540-a-mrg.htm",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "NJ",
+   "name": "New Jersey",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "NJ-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.njleg.state.nj.us/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "NJ-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "N.J.S.A. \u00a746:8-21.1"
+      },
+      "source_url": "https://www.njleg.state.nj.us/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "NJ-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.5,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "N.J.S.A. \u00a746:8-19"
+      },
+      "source_url": "https://www.njleg.state.nj.us/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "NJ-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.njleg.state.nj.us/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "NM",
+   "name": "New Mexico",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "NM-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://nmonesource.com/nmos/nmsa/en/nav.do",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "NM-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "forfeit_plus_multiplier",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "N.M. Stat. \u00a747-8-18(I)"
+      },
+      "source_url": "https://nmonesource.com/nmos/nmsa/en/nav.do",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "NM-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "N.M. Stat. \u00a747-8-18(A)"
+      },
+      "source_url": "https://nmonesource.com/nmos/nmsa/en/nav.do",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "NM-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://nmonesource.com/nmos/nmsa/en/nav.do",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "NV",
+   "name": "Nevada",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "NV-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 45,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.leg.state.nv.us/nrs/nrs-118a.html",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "NV-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "NRS \u00a7118A.242(6)"
+      },
+      "source_url": "https://www.leg.state.nv.us/nrs/nrs-118a.html",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "NV-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 3.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "NRS \u00a7118A.242(1)"
+      },
+      "source_url": "https://www.leg.state.nv.us/nrs/nrs-118a.html",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "NV-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 45,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.leg.state.nv.us/nrs/nrs-118a.html",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "NY",
+   "name": "New York",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "NY-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 2,
+        "days": 90,
+        "note": "N.Y. RPL \u00a7226-c"
+       },
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 1,
+        "days": 60
+       }
+      ],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.nysenate.gov/legislation/laws/GOB/7-108",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "NY-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 14,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_willful",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "N.Y. Gen. Oblig. Law \u00a77-108(1-a)(e)"
+      },
+      "source_url": "https://www.nysenate.gov/legislation/laws/GOB/7-108",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "NY-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "N.Y. Gen. Oblig. Law \u00a77-108(1-a)(a)"
+      },
+      "source_url": "https://www.nysenate.gov/legislation/laws/GOB/7-108",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "NY-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 2,
+        "days": 90,
+        "note": "N.Y. RPL \u00a7226-c"
+       },
+       {
+        "field": "tenancy_years",
+        "op": "gte",
+        "value": 1,
+        "days": 60
+       }
+      ],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.nysenate.gov/legislation/laws/GOB/7-108",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "OH",
+   "name": "Ohio",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "OH-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://codes.ohio.gov/orc/5321.16",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "OH-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "plus_attorney_fees": true,
+       "citation": "Ohio Rev. Code \u00a75321.16(C)"
+      },
+      "source_url": "https://codes.ohio.gov/orc/5321.16",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "OH-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Ohio Rev. Code \u00a75321.16 (no statutory cap)"
+      },
+      "source_url": "https://codes.ohio.gov/orc/5321.16",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "OH-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://codes.ohio.gov/orc/5321.16",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "OK",
+   "name": "Oklahoma",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "OK-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKST41&level=1",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "OK-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 16,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "deductions_claimed",
+        "op": "eq",
+        "value": true,
+        "days": 30
+       }
+      ],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "Okla. Stat. tit.41 \u00a7118(B)"
+      },
+      "source_url": "https://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKST41&level=1",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "OK-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Okla. Stat. tit.41 \u00a7115 (no statutory cap)"
+      },
+      "source_url": "https://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKST41&level=1",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "OK-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKST41&level=1",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "OR",
+   "name": "Oregon",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "OR-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [
+       {
+        "field": "increase_percent",
+        "op": "gt",
+        "value": 10,
+        "days": 90,
+        "note": "O.R.S. \u00a790.323(1)"
+       }
+      ],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://oregon.public.law/statutes/or_90.300",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "OR-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 31,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "O.R.S. \u00a790.300(5)"
+      },
+      "source_url": "https://oregon.public.law/statutes/or_90.300",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "OR-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "O.R.S. \u00a790.300 (no statutory cap)"
+      },
+      "source_url": "https://oregon.public.law/statutes/or_90.300",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "OR-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://oregon.public.law/statutes/or_90.300",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "PA",
+   "name": "Pennsylvania",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "PA-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legis.state.pa.us/cfdocs/legis/li/uconsCheck.cfm?yr=1999&sndInd=0&act=129",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "PA-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "tenancy_years",
+        "op": "gt",
+        "value": 1,
+        "days": 15,
+        "note": "68 P.S. \u00a7250.503"
+       }
+      ],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "68 P.S. \u00a7250.512"
+      },
+      "source_url": "https://www.legis.state.pa.us/cfdocs/legis/li/uconsCheck.cfm?yr=1999&sndInd=0&act=129",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "PA-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 2.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "68 P.S. \u00a7250.511 (1 month after 5 years)"
+      },
+      "source_url": "https://www.legis.state.pa.us/cfdocs/legis/li/uconsCheck.cfm?yr=1999&sndInd=0&act=129",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "PA-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.legis.state.pa.us/cfdocs/legis/li/uconsCheck.cfm?yr=1999&sndInd=0&act=129",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "RI",
+   "name": "Rhode Island",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "RI-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "http://webserver.rilin.state.ri.us/Statutes/TITLE34/34-18/INDEX.HTM",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "RI-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 20,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "forwarding_address_received",
+        "op": "eq",
+        "value": true,
+        "days": 30,
+        "note": "R.I. Gen. Laws \u00a734-18-54(c)"
+       }
+      ],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "plus_attorney_fees": true,
+       "citation": "R.I. Gen. Laws \u00a734-18-56(b)"
+      },
+      "source_url": "http://webserver.rilin.state.ri.us/Statutes/TITLE34/34-18/INDEX.HTM",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "RI-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "R.I. Gen. Laws \u00a734-18-53"
+      },
+      "source_url": "http://webserver.rilin.state.ri.us/Statutes/TITLE34/34-18/INDEX.HTM",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "RI-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "http://webserver.rilin.state.ri.us/Statutes/TITLE34/34-18/INDEX.HTM",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "SC",
+   "name": "South Carolina",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "SC-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.scstatehouse.gov/code/t27c040.php",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "SC-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "citation": "S.C. Code \u00a727-40-410(c)"
+      },
+      "source_url": "https://www.scstatehouse.gov/code/t27c040.php",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "SC-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "S.C. Code \u00a727-40-410 (no statutory cap)"
+      },
+      "source_url": "https://www.scstatehouse.gov/code/t27c040.php",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "SC-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.scstatehouse.gov/code/t27c040.php",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "SD",
+   "name": "South Dakota",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "SD-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://sdlegislature.gov/Statutes/Codified_Laws/2052613",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "SD-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 45,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "forwarding_address_received",
+        "op": "eq",
+        "value": true,
+        "days": 14
+       }
+      ],
+      "penalty": {
+       "type": "multiplier_fixed",
+       "multiplier": 1.5,
+       "plus_attorney_fees": true,
+       "citation": "S.D. Codified Laws \u00a743-32-24"
+      },
+      "source_url": "https://sdlegislature.gov/Statutes/Codified_Laws/2052613",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "SD-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "S.D. Codified Laws \u00a743-32-19"
+      },
+      "source_url": "https://sdlegislature.gov/Statutes/Codified_Laws/2052613",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "SD-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://sdlegislature.gov/Statutes/Codified_Laws/2052613",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "TN",
+   "name": "Tennessee",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "TN-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.capitol.tn.gov/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "TN-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "forwarding_address_received",
+        "op": "eq",
+        "value": true,
+        "days": 10,
+        "note": "Tenn. Code \u00a766-28-301(h)"
+       }
+      ],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "citation": "Tenn. Code \u00a766-28-301(g)"
+      },
+      "source_url": "https://www.capitol.tn.gov/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "TN-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Tenn. Code \u00a766-28-304 (no statutory cap)"
+      },
+      "source_url": "https://www.capitol.tn.gov/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "TN-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://www.capitol.tn.gov/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "TX",
+   "name": "Texas",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "TX-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "TX-DEP-RET-01",
+      "trigger": "later_of(surrender, forwarding_address_received)",
+      "timing": "after_trigger",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "later_of_keys_forwarding",
+      "conditions": [],
+      "penalty": {
+       "type": "fixed_plus_multiplier",
+       "fixed": 100,
+       "multiplier": 3,
+       "plus_attorney_fees": true,
+       "citation": "Tex. Prop. Code \u00a792.109"
+      },
+      "source_url": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "TX-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Tex. Prop. Code \u00a792.104 (no statutory cap)"
+      },
+      "source_url": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "TX-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "UT",
+   "name": "Utah",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "UT-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://le.utah.gov/xcode/Title57/Chapter17/57-17-P1.html",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "UT-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 15,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "deductions_claimed",
+        "op": "eq",
+        "value": true,
+        "days": 30
+       }
+      ],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "citation": "Utah Code \u00a757-17-3"
+      },
+      "source_url": "https://le.utah.gov/xcode/Title57/Chapter17/57-17-P1.html",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "UT-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Utah Code \u00a757-17-3 (no statutory cap)"
+      },
+      "source_url": "https://le.utah.gov/xcode/Title57/Chapter17/57-17-P1.html",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "UT-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 15,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://le.utah.gov/xcode/Title57/Chapter17/57-17-P1.html",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "VA",
+   "name": "Virginia",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "VA-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://law.lis.virginia.gov/vacode/title55.1/chapter12/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "VA-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 45,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "deductions_claimed",
+        "op": "eq",
+        "value": true,
+        "days": 45,
+        "note": "Va. Code \u00a755.1-1207(C) itemization"
+       }
+      ],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "plus_attorney_fees": true,
+       "citation": "Va. Code \u00a755.1-1226"
+      },
+      "source_url": "https://law.lis.virginia.gov/vacode/title55.1/chapter12/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "VA-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 2.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Va. Code \u00a755.1-1207(A)"
+      },
+      "source_url": "https://law.lis.virginia.gov/vacode/title55.1/chapter12/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "VA-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://law.lis.virginia.gov/vacode/title55.1/chapter12/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "VT",
+   "name": "Vermont",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "VT-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://legislature.vermont.gov/statutes/chapter/09/137",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "VT-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 14,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "9 V.S.A. \u00a74461(c)"
+      },
+      "source_url": "https://legislature.vermont.gov/statutes/chapter/09/137",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "VT-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": 1.0,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "9 V.S.A. \u00a74471(a)"
+      },
+      "source_url": "https://legislature.vermont.gov/statutes/chapter/09/137",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "VT-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://legislature.vermont.gov/statutes/chapter/09/137",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "WA",
+   "name": "Washington",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "WA-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://app.leg.wa.gov/rcw/default.aspx?cite=59.18.280",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "WA-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 21,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "deductions_claimed",
+        "op": "eq",
+        "value": false,
+        "days": 14
+       }
+      ],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "RCW 59.18.280"
+      },
+      "source_url": "https://app.leg.wa.gov/rcw/default.aspx?cite=59.18.280",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "WA-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "RCW 59.18.260 (no statutory cap)"
+      },
+      "source_url": "https://app.leg.wa.gov/rcw/default.aspx?cite=59.18.280",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "WA-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 20,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://app.leg.wa.gov/rcw/default.aspx?cite=59.18.280",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "WI",
+   "name": "Wisconsin",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "WI-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 28,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://docs.legis.wisconsin.gov/statutes/statutes/704",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "WI-DEP-RET-01",
+      "trigger": "surrender",
+      "timing": "after_trigger",
+      "days": 21,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [],
+      "penalty": {
+       "type": "multiplier_if_bad_faith",
+       "multiplier": 2,
+       "plus_attorney_fees": true,
+       "citation": "Wis. Admin. Code ATCP 134.06(2)"
+      },
+      "source_url": "https://docs.legis.wisconsin.gov/statutes/statutes/704",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "WI-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Wis. Admin. Code ATCP 134.02(3) (no statutory cap)"
+      },
+      "source_url": "https://docs.legis.wisconsin.gov/statutes/statutes/704",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "WI-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 28,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://docs.legis.wisconsin.gov/statutes/statutes/704",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "WV",
+   "name": "West Virginia",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "WV-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://code.wvlegislature.gov/37-6A/",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "WV-DEP-RET-01",
+      "trigger": "vacate_date",
+      "timing": "after_trigger",
+      "days": 60,
+      "calendar": "calendar_days",
+      "base_event": "keys_returned",
+      "conditions": [
+       {
+        "field": "forwarding_address_received",
+        "op": "eq",
+        "value": true,
+        "days": 14,
+        "note": "W. Va. Code \u00a737-6A-1(c)"
+       }
+      ],
+      "penalty": {
+       "type": "forfeit_deductions",
+       "plus_attorney_fees": true,
+       "citation": "W. Va. Code \u00a737-6A-1(c)"
+      },
+      "source_url": "https://code.wvlegislature.gov/37-6A/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "WV-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "W. Va. Code \u00a737-6A-1 (no statutory cap)"
+      },
+      "source_url": "https://code.wvlegislature.gov/37-6A/",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "WV-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://code.wvlegislature.gov/37-6A/",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  },
+  {
+   "code": "WY",
+   "name": "Wyoming",
+   "categories": {
+    "rent_increase": [
+     {
+      "id": "WY-REN-INC-01",
+      "trigger": "increase_effective_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "increase_effective",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://wyoleg.gov/statutes/compress/title01a.pdf",
+      "verified_date": "2026-06-09"
+     }
+    ],
+    "deposit_return": [
+     {
+      "id": "WY-DEP-RET-01",
+      "trigger": "later_of(surrender, forwarding_address_received)",
+      "timing": "after_trigger",
+      "days": 14,
+      "calendar": "calendar_days",
+      "base_event": "later_of_keys_forwarding",
+      "conditions": [
+       {
+        "field": "forwarding_address_received",
+        "op": "eq",
+        "value": true,
+        "days": 30,
+        "note": "Wyo. Stat. \u00a71-21-1207?"
+       }
+      ],
+      "penalty": {
+       "type": "multiplier_fixed",
+       "multiplier": 1.5,
+       "plus_attorney_fees": true,
+       "citation": "Wyo. Stat. \u00a71-21-1206"
+      },
+      "source_url": "https://wyoleg.gov/statutes/compress/title01a.pdf",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "deposit_cap": [
+     {
+      "id": "WY-DEP-CAP-01",
+      "trigger": "lease_signed",
+      "timing": "reference",
+      "days": null,
+      "calendar": "calendar_days",
+      "base_event": "reference",
+      "conditions": [],
+      "cap_months": null,
+      "penalty": {
+       "type": "excess_cap_forfeit",
+       "citation": "Wyo. Stat. \u00a71-21-1207 (no statutory cap)"
+      },
+      "source_url": "https://wyoleg.gov/statutes/compress/title01a.pdf",
+      "verified_date": "2026-03-17"
+     }
+    ],
+    "termination": [
+     {
+      "id": "WY-TER-01",
+      "trigger": "lease_end_date",
+      "timing": "before_event",
+      "days": 30,
+      "calendar": "calendar_days",
+      "base_event": "lease_end",
+      "conditions": [],
+      "penalty": {
+       "type": "informational",
+       "citation": "see linked statute"
+      },
+      "source_url": "https://wyoleg.gov/statutes/compress/title01a.pdf",
+      "verified_date": "2026-06-09"
+     }
+    ]
+   }
+  }
+ ]
+}
