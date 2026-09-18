@@ -19,6 +19,7 @@
 | Support | https://asunnyboy861.github.io/ServeRight/support.html | ✅ Active |
 | Privacy Policy | https://asunnyboy861.github.io/ServeRight/privacy.html | ✅ Active |
 | Terms of Use | https://asunnyboy861.github.io/ServeRight/terms.html | ✅ Active |
+| App Store Download | https://apps.apple.com/us/app/id6813489678 | ⏳ v1.0 Preparing for Release |
 
 ## Repository Structure
 
